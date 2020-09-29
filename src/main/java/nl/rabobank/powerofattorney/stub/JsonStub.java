@@ -83,9 +83,15 @@ public class JsonStub {
                         .withHeader(CONTENT_TYPE_HEADER, CONTENT_TYPE_JSON)));
     }
 
-    public static void main(final String[] args) {
-        new WireMockServer(configure()).start();
+    public static WireMockServer start() {
+        var wireMockServer = new WireMockServer(configure());
+        wireMockServer.start();
         setUp();
+        return wireMockServer;
+    }
+
+    public static void main(final String[] args) {
+        start();
     }
 
 }
