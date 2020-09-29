@@ -9,6 +9,20 @@ This awesome web service provides REST API for accessing power of attorney infor
 **Application runs on:** http://localhost:8080
 **REST API documentation:** http://localhost:8080/swagger/
 
+# Results
+
+**A new(additional) API runs on:** http://localhost:9080
+
+Two calls are made and an aggregate is made of all available data.
+- One retrieves an aggregate result based on the id 
+
+  **Example call for id:** http://localhost:9080/by-id/0001
+-  The second call retrieves multiple aggregate results based on the grantee 
+
+   **Example call for user:** http://localhost:9080/by-user/Super%20duper%20employee
+- Check style is added
+- And unit tests 
+
 # Exercise!
   - Build a REST API presenting aggregated information from different services
   - Only show data that a user is actually authorized for
@@ -27,16 +41,4 @@ This awesome web service provides REST API for accessing power of attorney infor
   - We look at the quality and readability of code that has been delivered more than if the functionality matches our expectations
   - Impress us!
 
-# Results
-
-**New API runs on:** http://localhost:9080
-
-Two calls are made and an aggregate is made of all available data.
-- One retrieves an aggregate result based on the id 
-
-  **Example call for 0001:** http://localhost:9080/by-id/0001
--  The second call retrieves multiple aggregate results based on the grantee 
-
-   **Example call for 0001:** http://localhost:9080/by-user/Super%20duper%20employee
-- Check style is added
-- And unit tests (make sure the application is stopped before running the test)
+(make sure the application is stopped before running the test)
