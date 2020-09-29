@@ -12,7 +12,8 @@ Two calls are made and for disclosing aggregated data.
 
    **Example call for user:** http://localhost:9080/by-user/Super%20duper%20employee
 - Check style is added and triggered with each compile
-- Unit tests and integration tests are added `mvn test`. No measure are taken to run the tests on a different port 
+- Unit tests and integration tests are added. To execute them run`mvn test`. 
+  No measures are taken to run the tests on a different port 
   the application must **not** run before running the test.
 
 # Power of Attorney Service
