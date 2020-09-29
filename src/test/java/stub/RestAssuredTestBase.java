@@ -4,7 +4,6 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import nl.rabobank.powerofattorney.stub.JsonStub;
-import org.apache.commons.lang3.StringUtils;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
@@ -26,7 +25,7 @@ public abstract class RestAssuredTestBase {
     public static void setUp()
     {
         init();
-//        wireMockServer = JsonStub.start();
+        wireMockServer = JsonStub.start();
     }
 
     @AfterClass

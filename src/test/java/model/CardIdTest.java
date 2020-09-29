@@ -42,7 +42,7 @@ public class CardIdTest {
 
         var id = new ObjectMapper().readValue(raw, CardId.class);
 
-        assertThat(id.getId(), is("42"));
+        assertThat(id.getValue(), is("42"));
     }
 
 

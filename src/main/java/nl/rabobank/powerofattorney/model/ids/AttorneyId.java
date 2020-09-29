@@ -16,13 +16,13 @@ import lombok.*;
 @JsonSerialize(using = AttorneyId.Serializer.class)
 @JsonDeserialize(using = AttorneyId.Deserializer.class)
 public class AttorneyId {
-    @NonNull String id;
+    @NonNull String value;
 
     public static class Serializer extends JsonSerializer<AttorneyId> {
         @SneakyThrows
         @Override
         public void serialize(AttorneyId value, JsonGenerator gen, SerializerProvider serializers) {
-            gen.writeString(value.getId());
+            gen.writeString(value.getValue());
         }
     }
 

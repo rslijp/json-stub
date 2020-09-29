@@ -42,7 +42,7 @@ public class AttorneyIdTest {
 
         var id = new ObjectMapper().readValue(raw, AttorneyId.class);
 
-        assertThat(id.getId(), is("42"));
+        assertThat(id.getValue(), is("42"));
     }
 
 

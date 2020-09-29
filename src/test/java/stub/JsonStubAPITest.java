@@ -6,9 +6,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 
 import java.util.Arrays;
-import nl.rabobank.powerofattorney.model.attorney.Attorney;
+import nl.rabobank.powerofattorney.model.attorney.CardReference;
+import nl.rabobank.powerofattorney.model.attorney.PowerOfAttorney;
 import nl.rabobank.powerofattorney.model.ids.AttorneyId;
-import nl.rabobank.powerofattorney.model.attorney.AttorneySummary;
+import nl.rabobank.powerofattorney.model.attorney.PowerOfAttorneyReference;
 import nl.rabobank.powerofattorney.model.cards.*;
 import nl.rabobank.powerofattorney.model.enums.*;
 import nl.rabobank.powerofattorney.model.ids.CardId;
@@ -18,7 +19,7 @@ import org.junit.runners.JUnit4;
 
 
 @RunWith(JUnit4.class)
-public class PowerOfAttorneyTest extends RestAssuredTestBase
+public class JsonStubAPITest extends RestAssuredTestBase
 {
     @Test
     public void get_of_power_of_attorneys_should_return_all_four_results() {
@@ -27,13 +28,13 @@ public class PowerOfAttorneyTest extends RestAssuredTestBase
             get("/power-of-attorneys").
         then().
             statusCode(200).
-        and().extract().as(AttorneySummary[].class);
+        and().extract().as(PowerOfAttorneyReference[].class);
 
         assertThat(Arrays.asList(attorneyIds), contains(
-                new AttorneySummary(new AttorneyId("0001")),
-                new AttorneySummary(new AttorneyId("0002")),
-                new AttorneySummary(new AttorneyId("0003")),
-                new AttorneySummary(new AttorneyId("0004"))
+                new PowerOfAttorneyReference(new AttorneyId("0001")),
+                new PowerOfAttorneyReference(new AttorneyId("0002")),
+                new PowerOfAttorneyReference(new AttorneyId("0003")),
+                new PowerOfAttorneyReference(new AttorneyId("0004"))
         ));
     }
 
@@ -47,10 +48,10 @@ public class PowerOfAttorneyTest extends RestAssuredTestBase
         and().
             body("id", is("0001")).
         and().
-            extract().as(Attorney.class);
+            extract().as(PowerOfAttorney.class);
 
         assertThat(attorney, is(
-                new Attorney(
+                new PowerOfAttorney(
                 new AttorneyId("0001"),
                 "Super duper company",
                 "Fellowship of the ring",
@@ -61,14 +62,14 @@ public class PowerOfAttorneyTest extends RestAssuredTestBase
                         Authorization.VIEW,
                         Authorization.PAYMENT
                 },
-                new CardSummary[]{
-                        new CardSummary(
+                new CardReference[]{
+                        new CardReference(
                                 new CardId("1111"), CardType.DEBIT_CARD
                         ),
-                        new CardSummary(
+                        new CardReference(
                                 new CardId("2222"), CardType.DEBIT_CARD
                         ),
-                        new CardSummary(
+                        new CardReference(
                                 new CardId("3333"), CardType.CREDIT_CARD
                         )
                 }

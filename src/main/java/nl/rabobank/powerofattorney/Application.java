@@ -1,4 +1,4 @@
-package nl.rabobank.powerofattorney.app;
+package nl.rabobank.powerofattorney;
 
 import nl.rabobank.powerofattorney.stub.JsonStub;
 import org.slf4j.Logger;

@@ -20,13 +20,13 @@ import lombok.SneakyThrows;
 @JsonSerialize(using = CardId.Serializer.class)
 @JsonDeserialize(using = CardId.Deserializer.class)
 public class CardId {
-    @NonNull String id;
+    @NonNull String value;
 
     public static class Serializer extends JsonSerializer<CardId> {
         @SneakyThrows
         @Override
         public void serialize(CardId value, JsonGenerator gen, SerializerProvider serializers) {
-            gen.writeString(value.getId());
+            gen.writeString(value.getValue());
         }
     }
 
