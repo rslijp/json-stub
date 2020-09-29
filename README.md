@@ -1,9 +1,10 @@
 # Results
 
 **A new(additional) API runs on:** http://localhost:9080
+
 **To build and run(unchanged):** use `mvn compile exec:java`
 
-Two calls are made and an aggregate is made of all available data.
+Two calls are made and for disclosing aggregated data.
 - One retrieves an aggregate result based on the id 
 
   **Example call for id:** http://localhost:9080/by-id/0001
