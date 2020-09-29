@@ -1,3 +1,19 @@
+# Results
+
+**A new(additional) API runs on:** http://localhost:9080
+**To build and run(unchanged):** use `mvn compile exec:java`
+
+Two calls are made and an aggregate is made of all available data.
+- One retrieves an aggregate result based on the id 
+
+  **Example call for id:** http://localhost:9080/by-id/0001
+-  The second call retrieves multiple aggregate results based on the grantee 
+
+   **Example call for user:** http://localhost:9080/by-user/Super%20duper%20employee
+- Check style is added and triggered with each compile
+- Unit tests and integration tests are added `mvn test`. No measure are taken to run the tests on a different port 
+  the application must **not** run before running the test.
+
 # Power of Attorney Service
 This awesome web service provides REST API for accessing power of attorney information of a user
   - Power of attorney details such as grantee, grantor and account details (/power-of-attorneys/{id})
@@ -9,19 +25,6 @@ This awesome web service provides REST API for accessing power of attorney infor
 **Application runs on:** http://localhost:8080
 **REST API documentation:** http://localhost:8080/swagger/
 
-# Results
-
-**A new(additional) API runs on:** http://localhost:9080
-
-Two calls are made and an aggregate is made of all available data.
-- One retrieves an aggregate result based on the id 
-
-  **Example call for id:** http://localhost:9080/by-id/0001
--  The second call retrieves multiple aggregate results based on the grantee 
-
-   **Example call for user:** http://localhost:9080/by-user/Super%20duper%20employee
-- Check style is added
-- And unit tests 
 
 # Exercise!
   - Build a REST API presenting aggregated information from different services
