@@ -1,4 +1,4 @@
-package model;
+package model.accounts;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -7,18 +7,18 @@ import static org.junit.Assert.fail;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
-import nl.rabobank.powerofattorney.model.ids.AttorneyId;
+import nl.rabobank.powerofattorney.model.ids.AccountId;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
-public class AttorneyIdTest {
+public class AccountIdTest {
 
     @SneakyThrows
     @Test
     public void should_serialize_id(){
-        var id = new AttorneyId("42");
+        var id = new AccountId("42");
 
         var raw = new ObjectMapper().writeValueAsString(id);
 
@@ -30,7 +30,7 @@ public class AttorneyIdTest {
     public void should_deserialize_id_null_value(){
         var raw = "null";
 
-        var id = new ObjectMapper().readValue(raw, AttorneyId.class);
+        var id = new ObjectMapper().readValue(raw, AccountId.class);
 
         assertThat(id, nullValue());
     }
@@ -40,7 +40,7 @@ public class AttorneyIdTest {
     public void should_deserialize_id(){
         var raw = "\"42\"";
 
-        var id = new ObjectMapper().readValue(raw, AttorneyId.class);
+        var id = new ObjectMapper().readValue(raw, AccountId.class);
 
         assertThat(id.getValue(), is("42"));
     }
@@ -50,10 +50,10 @@ public class AttorneyIdTest {
     @Test
     public void should_reject_null_id(){
         try {
-            new AttorneyId(null);
+            new AccountId(null);
             fail();
         } catch(NullPointerException e){
-           assertThat(e.getMessage(), is("id is marked non-null but is null"));
+           assertThat(e.getMessage(), is("value is marked non-null but is null"));
         }
     }
 

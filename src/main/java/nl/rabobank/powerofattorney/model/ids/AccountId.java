@@ -8,29 +8,32 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.*;
+import lombok.Data;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 
 @RequiredArgsConstructor
 @Data
-@JsonSerialize(using = AttorneyId.Serializer.class)
-@JsonDeserialize(using = AttorneyId.Deserializer.class)
-public class AttorneyId {
+@JsonSerialize(using = AccountId.Serializer.class)
+@JsonDeserialize(using = AccountId.Deserializer.class)
+public class AccountId {
     @NonNull final String value;
 
-    public static class Serializer extends JsonSerializer<AttorneyId> {
+    public static class Serializer extends JsonSerializer<AccountId> {
         @SneakyThrows
         @Override
-        public void serialize(AttorneyId value, JsonGenerator gen, SerializerProvider serializers) {
+        public void serialize(AccountId value, JsonGenerator gen, SerializerProvider serializers) {
             gen.writeString(value.getValue());
         }
     }
 
-    public static class Deserializer extends JsonDeserializer<AttorneyId> {
+    public static class Deserializer extends JsonDeserializer<AccountId> {
         @SneakyThrows
         @Override
-        public AttorneyId deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) {
+        public AccountId deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) {
             var id = jsonParser.getValueAsString();
-            return id != null ? new AttorneyId(id) : null;
+            return id != null ? new AccountId(id) : null;
         }
     }
 }

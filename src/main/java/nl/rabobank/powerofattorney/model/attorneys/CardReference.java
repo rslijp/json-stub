@@ -1,4 +1,4 @@
-package nl.rabobank.powerofattorney.model.attorney;
+package nl.rabobank.powerofattorney.model.attorneys;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,4 +13,8 @@ import nl.rabobank.powerofattorney.model.ids.CardId;
 public class CardReference {
     @NonNull CardId id;
     @NonNull CardType type;
+
+    public boolean is(CardType query) {
+        return query == type;
+    }
 }

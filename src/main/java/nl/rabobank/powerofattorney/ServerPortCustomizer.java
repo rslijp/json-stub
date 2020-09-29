@@ -1,4 +1,4 @@
-package nl.rabobank.powerofattorney.app;
+package nl.rabobank.powerofattorney;
 
 import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;

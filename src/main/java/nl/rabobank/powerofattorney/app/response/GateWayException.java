@@ -1,8 +1,10 @@
 package nl.rabobank.powerofattorney.app.response;
 
-public class GateWayException extends Exception {
+import org.springframework.http.HttpStatus;
+
+public class GateWayException extends ExceptionWithHttpStatus {
 
     public GateWayException(String msg) {
-        super(msg);
+        super(msg, HttpStatus.BAD_GATEWAY);
     }
 }

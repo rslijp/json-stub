@@ -1,4 +1,4 @@
-package nl.rabobank.powerofattorney.model.attorney.impl;
+package nl.rabobank.powerofattorney.model.attorneys.impl;
 
 import static nl.rabobank.powerofattorney.util.JsonUtil.asClass;
 
@@ -6,9 +6,9 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import nl.rabobank.powerofattorney.backingapi.ApiClient;
-import nl.rabobank.powerofattorney.model.attorney.PowerOfAttorney;
-import nl.rabobank.powerofattorney.model.attorney.PowerOfAttorneyReference;
-import nl.rabobank.powerofattorney.model.attorney.PowerOfAttorneyRepository;
+import nl.rabobank.powerofattorney.model.attorneys.PowerOfAttorney;
+import nl.rabobank.powerofattorney.model.attorneys.PowerOfAttorneyReference;
+import nl.rabobank.powerofattorney.model.attorneys.PowerOfAttorneyRepository;
 import nl.rabobank.powerofattorney.model.ids.AttorneyId;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +25,7 @@ public class JsonStubPowerOfAttorneyRepository implements PowerOfAttorneyReposit
         );
     }
 
+    @Override
     @SneakyThrows
     public PowerOfAttorney get(@NonNull AttorneyId id) {
         return asClass(PowerOfAttorney.class,

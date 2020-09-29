@@ -8,19 +8,14 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.SneakyThrows;
+import lombok.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Data
 @JsonSerialize(using = CardId.Serializer.class)
 @JsonDeserialize(using = CardId.Deserializer.class)
 public class CardId {
-    @NonNull String value;
+    @NonNull final String value;
 
     public static class Serializer extends JsonSerializer<CardId> {
         @SneakyThrows

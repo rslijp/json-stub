@@ -13,11 +13,13 @@
         <relativePath/>
     </parent>
 
+
     <properties>
         <lombok.version>1.18.12</lombok.version>
         <nunit.version>4.12</nunit.version>
         <restassured.version>4.3.1</restassured.version>
         <okhttp3.version>4.7.2</okhttp3.version>
+        <jackson.version>2.11.2</jackson.version>
     </properties>
 
     <dependencies>
@@ -29,6 +31,11 @@
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
             <version>${okhttp3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.tomakehurst</groupId>
@@ -57,17 +64,17 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>${restassured.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured-all</artifactId>
-            <version>${restassured.version}</version>
-            <scope>test</scope>
-        </dependency>
+
     </dependencies>
 
     <build>

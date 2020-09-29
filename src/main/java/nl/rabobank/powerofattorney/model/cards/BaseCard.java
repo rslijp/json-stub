@@ -17,4 +17,5 @@ abstract class BaseCard {
     int cardNumber;
     int sequenceNumber;
     @NonNull String cardHolder;
+
 }

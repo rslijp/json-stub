@@ -1,4 +1,4 @@
-package nl.rabobank.powerofattorney.model.attorney;
+package nl.rabobank.powerofattorney.model.attorneys;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ public class PowerOfAttorney {
     @NonNull AttorneyId id;
     @NonNull String grantor;
     @NonNull String grantee;
-    @NonNull String account;
+    @NonNull BankAccountNumber account;
     @NonNull Direction direction;
     @NonNull Authorization[] authorizations = new Authorization[]{};
     @NonNull CardReference[] cards = new CardReference[]{};

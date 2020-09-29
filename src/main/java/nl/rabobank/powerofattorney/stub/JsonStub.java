@@ -53,6 +53,12 @@ public class JsonStub {
                         aResponse()
                                 .withBodyFile("poa/{{request.path.[1]}}.json")
                                 .withHeader(CONTENT_TYPE_HEADER, CONTENT_TYPE_JSON)));
+        // Get accounts
+        stubFor(get(urlMatching("/accounts"))
+                .willReturn(
+                        aResponse()
+                                .withBodyFile("accounts/accounts.json")
+                                .withHeader(CONTENT_TYPE_HEADER, CONTENT_TYPE_JSON)));
 
         // Get account details
         stubFor(get(urlMatching("/accounts/\\d+"))

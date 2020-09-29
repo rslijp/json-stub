@@ -1,9 +1,10 @@
-package nl.rabobank.powerofattorney.model.attorney;
+package nl.rabobank.powerofattorney.model.attorneys;
 
 import lombok.NonNull;
 import nl.rabobank.powerofattorney.model.ids.AttorneyId;
 
 public interface PowerOfAttorneyRepository {
     PowerOfAttorneyReference[] all();
-    PowerOfAttorney get(@NonNull AttorneyId id);
+
+    @NonNull PowerOfAttorney get(@NonNull AttorneyId id);
 }

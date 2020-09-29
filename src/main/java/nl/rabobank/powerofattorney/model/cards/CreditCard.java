@@ -24,4 +24,6 @@ public class CreditCard extends BaseCard {
         super(id, status, cardNumber, sequenceNumber, cardHolder);
         this.monthlyLimit = monthlyLimit;
     }
+
+
 }

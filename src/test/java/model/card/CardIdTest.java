@@ -1,4 +1,4 @@
-package model;
+package model.card;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -53,7 +53,7 @@ public class CardIdTest {
             new CardId(null);
             fail();
         } catch(NullPointerException e){
-           assertThat(e.getMessage(), is("id is marked non-null but is null"));
+           assertThat(e.getMessage(), is("value is marked non-null but is null"));
         }
     }
 
