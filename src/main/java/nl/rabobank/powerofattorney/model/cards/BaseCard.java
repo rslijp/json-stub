@@ -11,7 +11,7 @@ import nl.rabobank.powerofattorney.model.ids.CardId;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public abstract class BaseCard {
+abstract class BaseCard {
     @NonNull CardId id;
     CardStatus status;
     int cardNumber;

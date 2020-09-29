@@ -1,3 +1,5 @@
+package stub;
+
 import com.github.tomakehurst.wiremock.WireMockServer;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;

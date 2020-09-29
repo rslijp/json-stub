@@ -2,10 +2,12 @@ package nl.rabobank.powerofattorney.model.cards;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import nl.rabobank.powerofattorney.model.enums.CardStatus;
 import nl.rabobank.powerofattorney.model.ids.CardId;
 
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
