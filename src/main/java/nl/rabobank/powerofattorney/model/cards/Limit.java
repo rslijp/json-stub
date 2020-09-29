@@ -1,4 +1,4 @@
-package nl.rabobank.powerofattorney.model;
+package nl.rabobank.powerofattorney.model.cards;
 
 
 import lombok.AllArgsConstructor;

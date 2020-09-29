@@ -4,15 +4,19 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 
 import java.util.Arrays;
-import nl.rabobank.powerofattorney.model.*;
+import nl.rabobank.powerofattorney.model.attorney.Attorney;
+import nl.rabobank.powerofattorney.model.ids.AttorneyId;
+import nl.rabobank.powerofattorney.model.attorney.AttorneySummary;
+import nl.rabobank.powerofattorney.model.cards.*;
 import nl.rabobank.powerofattorney.model.enums.*;
+import nl.rabobank.powerofattorney.model.ids.CardId;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 
 @RunWith(JUnit4.class)
-public class PowerOfAttorneryTest extends RestAssuredTestBase
+public class PowerOfAttorneyTest extends RestAssuredTestBase
 {
     @Test
     public void get_of_power_of_attorneys_should_return_all_four_results() {
@@ -21,13 +25,13 @@ public class PowerOfAttorneryTest extends RestAssuredTestBase
             get("/power-of-attorneys").
         then().
             statusCode(200).
-        and().extract().as(AttorneyId[].class);
+        and().extract().as(AttorneySummary[].class);
 
         assertThat(Arrays.asList(attorneyIds), contains(
-                new AttorneyId("0001"),
-                new AttorneyId("0002"),
-                new AttorneyId("0003"),
-                new AttorneyId("0004")
+                new AttorneySummary(new AttorneyId("0001")),
+                new AttorneySummary(new AttorneyId("0002")),
+                new AttorneySummary(new AttorneyId("0003")),
+                new AttorneySummary(new AttorneyId("0004"))
         ));
     }
 
@@ -45,7 +49,7 @@ public class PowerOfAttorneryTest extends RestAssuredTestBase
 
         assertThat(attorney, is(
                 new Attorney(
-                "0001",
+                new AttorneyId("0001"),
                 "Super duper company",
                 "Fellowship of the ring",
                 "NL23RABO123456789",
@@ -57,13 +61,13 @@ public class PowerOfAttorneryTest extends RestAssuredTestBase
                 },
                 new CardSummary[]{
                         new CardSummary(
-                                "1111", CardType.DEBIT_CARD
+                                new CardId("1111"), CardType.DEBIT_CARD
                         ),
                         new CardSummary(
-                                "2222", CardType.DEBIT_CARD
+                                new CardId("2222"), CardType.DEBIT_CARD
                         ),
                         new CardSummary(
-                                "3333", CardType.CREDIT_CARD
+                                new CardId("3333"), CardType.CREDIT_CARD
                         )
                 }
 
@@ -92,7 +96,7 @@ public class PowerOfAttorneryTest extends RestAssuredTestBase
 
         assertThat(debitCard, is(
                 new DebitCard(
-                "1111",
+                new CardId("1111"),
                 CardStatus.ACTIVE,
                 1234,
                 5,
@@ -131,7 +135,7 @@ public class PowerOfAttorneryTest extends RestAssuredTestBase
 
         assertThat(creditCard, is(
                 new CreditCard(
-                        "3333",
+                        new CardId("3333"),
                         CardStatus.ACTIVE,
                         5075,
                         1,

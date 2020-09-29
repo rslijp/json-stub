@@ -1,21 +1,20 @@
-package nl.rabobank.powerofattorney.model;
+package nl.rabobank.powerofattorney.model.cards;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import nl.rabobank.powerofattorney.model.enums.CardStatus;
+import nl.rabobank.powerofattorney.model.ids.CardId;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-public class DebitCard {
-    @NonNull String id;
+public abstract class BaseCard {
+    @NonNull CardId id;
     CardStatus status;
     int cardNumber;
     int sequenceNumber;
     @NonNull String cardHolder;
-    @NonNull Limit atmLimit;
-    @NonNull Limit posLimit;
-    boolean contactless;
 }
